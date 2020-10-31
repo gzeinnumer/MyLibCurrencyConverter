@@ -57,6 +57,8 @@ button.setOnClickListener(new View.OnClickListener() {
         String str = editText.getText().toString();
         Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
         Log.d(TAG, "onClick: "+editText.getText().toString());
+
+        textView.setText(CurrencyConverter.trimCommaOfString(str));
     }
 });
 
@@ -67,6 +69,8 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
     public void realString(String value) {
         Log.d(TAG, "realString: "+value);
         Log.d(TAG, "realString: "+editText.getText().toString());
+
+        textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
     }
 }));
 ```
@@ -79,6 +83,8 @@ button.setOnClickListener {
     val str: String = editText.text.toString()
     Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
     Log.d(TAG, "onClick: "+editText.text.toString())
+
+    textView.text = CurrencyConverter.trimCommaOfString(str)
 }
 
 //sample 2
@@ -88,6 +94,8 @@ editText.addTextChangedListener(
         StringCallBack { value ->
             Log.d(TAG, "realString: $value")
             Log.d(TAG, "realString: "+editText.text)
+
+            textView.text = CurrencyConverter.trimCommaOfString(str)
         }
     )
 )
