@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.ed);
         button = findViewById(R.id.btn);
 
-        sample1();
-//        sample2();
+//        sample1();
+        sample2();
     }
 
     private void sample1() {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void realString(String value) {
                 Log.d(TAG, "realString: "+value);
-                Log.d(TAG, "realString: "+value);
+                Log.d(TAG, "realString: "+editText.getText().toString());
             }
         }));
     }
