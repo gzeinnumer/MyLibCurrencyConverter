@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-    MyLibUtils
+    MyLibCurrencyConverter
 </h1>
 
 <p align="center">
@@ -13,12 +13,12 @@
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple function for <b>Date</b> and <b>String</b>.</p>
+    <p>Simple way to convert 1000000 to 1,000,000 .</p>
 </p>
 
 ---
 ## Download
-Add maven `jitpack.io` and `depedencies` in build.gradle (Project) :
+Add maven `jitpack.io` and `dependencies` in build.gradle (Project) :
 ```gradle
 // build.gradle project
 allprojects {
@@ -46,7 +46,7 @@ dependencies {
 
 ### CurrencyConverter.
 > **Java**
-```
+```java
 //sample 1
 //get real value from input via onclick
 editText.addTextChangedListener(new CurrencyConverter(editText));
