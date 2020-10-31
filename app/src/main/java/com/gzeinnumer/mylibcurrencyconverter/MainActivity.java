@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void realString(String value) {
                 Log.d(TAG, "realString: "+value);
+                Log.d(TAG, "realString: "+value);
             }
         }));
     }

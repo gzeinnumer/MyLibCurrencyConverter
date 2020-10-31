@@ -56,6 +56,7 @@ button.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         String str = editText.getText().toString();
         Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
+        Log.d(TAG, "onClick: "+editText.getText().toString());
     }
 });
 
@@ -65,20 +66,31 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
     @Override
     public void realString(String value) {
         Log.d(TAG, "realString: "+value);
+        Log.d(TAG, "realString: "+editText.getText().toString());
     }
 }));
 ```
 > **Kotlin**
 ```kotlin
-var value = "30-08-2020"
-Log.d(TAG, "onCreate: before : $value") //30-08-2020
+//sample 1
+//get real value from input via onclick
+editText.addTextChangedListener(CurrencyConverter(editText))
+button.setOnClickListener {
+    val str: String = editText.text.toString()
+    Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
+    Log.d(TAG, "onClick: "+editText.text.toString())
+}
 
-val oldFormat = "dd-MM-yyyy"
-val newFormat = "yyyy-MM-dd"
-
-value = value.reformatDate(oldFormat,newFormat, Locale.getDefault())
-
-Log.d(TAG, "onCreate: after : $value") //2020-08-30
+//sample 2
+//get real value from input via listener
+editText.addTextChangedListener(
+    CurrencyConverter(editText,
+        StringCallBack { value ->
+            Log.d(TAG, "realString: $value")
+            Log.d(TAG, "realString: "+editText.text)
+        }
+    )
+)
 ```
 
 ---
