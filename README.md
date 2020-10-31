@@ -94,7 +94,7 @@ editText.addTextChangedListener(
 ```
 
 Preview :
-|![](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg)|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|
 |---|
 
 ---
