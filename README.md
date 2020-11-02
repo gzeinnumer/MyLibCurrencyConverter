@@ -66,7 +66,7 @@ Here is the `xml` view that i use for Sample 1-4
     android:layout_height="wrap_content"
     android:inputType="numberDecimal" />
 ```
-
+#
 * Sample 1 -> Simple TextWacher
 > **Java**
 ```java
@@ -183,6 +183,10 @@ editText.addTextChangedListener(
 )
 ```
 
+Preview :
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example2.jpg" width="400"/>|
+|---|---|
+
 #
 ### CurrencyConverter In View (XML).
 * Sample 1 -> In EditText
@@ -202,8 +206,8 @@ String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example4.jpg" width="400"/>|
-|---|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example4.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example9.jpg" width="400"/>|
+|---|---|
 
 #
 * Sample 2 -> Use Material Design
@@ -229,8 +233,8 @@ String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example5.jpg" width="400"/>|
-|---|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example5.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example10.jpg" width="400"/>|
+|---|---|
 
 #
 * Sample 3 -> Use Material Design With Simple Code
@@ -276,13 +280,13 @@ button.setOnClickListener(new View.OnClickListener() {
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example6.jpg" width="400"/>|
-|---|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example6.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example11.jpg" width="400"/>|
+|---|---|
 
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example2.jpg" width="400"/>|
-|---|---|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example8.jpg" width="400"/>|
+|---|
 
 ---
 
