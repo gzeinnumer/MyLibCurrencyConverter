@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CurrencyEditText">
+        <attr name="hint" format="string"/>
+        <attr name="prefix" format="string"/>
+        <attr name="maxLength" format="integer"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CurrencyEditTextFilledBox">
+        <attr name="hint"/>
+        <attr name="prefix"/>
+        <attr name="maxLength"/>
+        <attr name="textSize"/>
+    </declare-styleable>
+
+    <declare-styleable name="CurrencyEditTextOutlinedBox">
+        <attr name="hint"/>
+        <attr name="prefix"/>
+        <attr name="maxLength"/>
+        <attr name="textSize"/>
+    </declare-styleable>
+</resources>

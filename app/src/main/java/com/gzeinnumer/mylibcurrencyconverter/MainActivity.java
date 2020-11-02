@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 //import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyConvertera;
 import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyConverter;
+import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox;
+import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
 
-        sample1();
+//        sample1();
 //        sample2();
 //        sample3();
+//        sample4();
+        sample5();
     }
 
     private void sample1() {
@@ -66,5 +70,35 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
             }
         }));
+    }
+
+    private void sample4() {
+        CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed_1);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                textView.setText(CurrencyConverter.trimCommaOfString(str));
+                CurrencyEditTextOutlinedBox.trimCommaOfString(editText.getText().toString());
+                textView.setText(ed1.getText());
+            }
+        });
+
+    }
+
+    private void sample5() {
+        CurrencyEditTextFilledBox ed1 = findViewById(R.id.ed_2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                textView.setText(CurrencyConverter.trimCommaOfString(str));
+                CurrencyEditTextFilledBox.trimCommaOfString(editText.getText().toString());
+                textView.setText(ed1.getText());
+            }
+        });
+
     }
 }
