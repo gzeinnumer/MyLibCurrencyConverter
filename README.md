@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/dev-1/preview/bg.jpg" width="400"/>
 </p>
 
 <h1 align="center">
@@ -174,7 +174,7 @@ String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example4.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example4.jpg" width="400"/>|
 |---|
 
 * Sample 2 -> Use Material Design
@@ -199,7 +199,7 @@ String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example5.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example5.jpg" width="400"/>|
 |---|
 
 * Sample 3 -> Use Material Design With Simple Code
@@ -245,12 +245,12 @@ button.setOnClickListener(new View.OnClickListener() {
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example6.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example6.jpg" width="400"/>|
 |---|
 
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example2.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example2.jpg" width="400"/>|
 |---|---|
 
 ---
