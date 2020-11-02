@@ -58,8 +58,6 @@ public class CurrencyEditText extends AppCompatEditText {
     public CurrencyEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-
-
         this.context = context;
         this.attrs = attrs;
 
@@ -147,8 +145,7 @@ public class CurrencyEditText extends AppCompatEditText {
 
         private String formatInteger(String str) {
             BigDecimal parsed = new BigDecimal(str);
-            DecimalFormat formatter =
-                    new DecimalFormat(prefix + "#,###", new DecimalFormatSymbols(Locale.US));
+            DecimalFormat formatter = new DecimalFormat(prefix + "#,###", new DecimalFormatSymbols(Locale.US));
             return formatter.format(parsed);
         }
 
