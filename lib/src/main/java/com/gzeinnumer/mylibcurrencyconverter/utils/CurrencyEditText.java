@@ -44,7 +44,7 @@ public class CurrencyEditText extends AppCompatEditText {
         this.prefix = attributes.getString(R.styleable.CurrencyEditText_prefix);
 
         this.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        this.setHint(prefix);
+//        this.setHint(prefix);
         if (attributes.getInteger(R.styleable.CurrencyEditText_maxLength,0) != 0){
             MAX_LENGTH = attributes.getInteger(R.styleable.CurrencyEditText_maxLength,MAX_LENGTH);
         }
