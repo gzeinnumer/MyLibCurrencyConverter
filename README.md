@@ -202,7 +202,7 @@ Preview :
     app:hint="Dalam Jumlah Rupiah"
     app:prefix="RP " />
 ```
-Remove `Prefix` and symbol `,`
+Remove `Prefix` and symbol `,` and get `real value`
 ```java
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 
@@ -229,7 +229,7 @@ Preview :
 
 </com.google.android.material.textfield.TextInputLayout>
 ```
-Remove `Prefix` and symbol `,`
+Remove `Prefix` and symbol `,` and get `real value`
 ```java
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 
