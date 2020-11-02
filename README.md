@@ -36,15 +36,37 @@ dependencies {
 ```
 
 ## Feature List
-- [x] **CurrencyConverter**.
+- [x] **CurrencyConverter Programatically**.
+- [x] **CurrencyConverter In View (XML)**.
 
 ## Tech stack and 3rd library
 - TextWatcher ([docs](https://developer.android.com/reference/android/text/TextWatcher))
+- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
 
 ---
 ## Use
 
 ### CurrencyConverter Programatically.
+
+**Note** `RP 123,456,789.111` To Remove `Prefix` `RP` and symbol `,` you can use this
+```java
+String str = editText.getText().toString();
+textView.setText(StringTools.trimCommaOfString(str));
+```
+```kotlin
+val str = editText.text;
+textView.text = StringTools.trimCommaOfString(str)
+```
+
+Here is the `xml` view that i use for Sample 1-4
+```xml
+<EditText
+    android:id="@+id/editText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="numberDecimal" />
+```
+
 * Sample 1 -> Simple TextWacher
 > **Java**
 ```java
@@ -74,6 +96,7 @@ button.setOnClickListener {
 }
 ```
 
+#
 * Sample 2 -> Simple TextWacher With CallBack
 > **Java**
 ```java
@@ -101,6 +124,7 @@ editText.addTextChangedListener(
 )
 ```
 
+#
 * Sample 3 -> Simple TextWacher With Prefix
 > **Java**
 ```java
@@ -130,6 +154,7 @@ button.setOnClickListener {
 }
 ```
 
+#
 * Sample 4 -> Simple TextWacher With Prefix And CallBack
 > **Java**
 ```java
@@ -158,6 +183,7 @@ editText.addTextChangedListener(
 )
 ```
 
+#
 ### CurrencyConverter In View (XML).
 * Sample 1 -> In EditText
 ```xml
@@ -168,6 +194,7 @@ editText.addTextChangedListener(
     app:hint="Dalam Jumlah Rupiah"
     app:prefix="RP " />
 ```
+Remove Prefix and symbol " , "
 ```java
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 
@@ -178,6 +205,7 @@ Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example4.jpg" width="400"/>|
 |---|
 
+#
 * Sample 2 -> Use Material Design
 ```xml
 <com.google.android.material.textfield.TextInputLayout
@@ -193,6 +221,7 @@ Preview :
 
 </com.google.android.material.textfield.TextInputLayout>
 ```
+Remove Prefix and symbol " , "
 ```java
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 
@@ -203,6 +232,7 @@ Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example5.jpg" width="400"/>|
 |---|
 
+#
 * Sample 3 -> Use Material Design With Simple Code
 ```xml
 //OutlinedBox
