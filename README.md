@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example7.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example12.jpg" width="400"/>
 </p>
 
 <h1 align="center">
@@ -62,7 +62,7 @@ textView.text = StringTools.trimCommaOfString(str, "RP ")
 textView.text = StringTools.trimCommaOfString(str)
 ```
 
-Here is the `xml` view that i use for Sample 1-4
+Here is the `xml` view that i use for **Sample 1-4**
 ```xml
 <EditText
     android:id="@+id/editText"
@@ -71,7 +71,7 @@ Here is the `xml` view that i use for Sample 1-4
     android:inputType="numberDecimal" />
 ```
 #
-* Sample 1 -> Simple `TextWacher`
+* **Sample 1** -> Simple `TextWacher`
 > **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText));
@@ -101,7 +101,7 @@ button.setOnClickListener {
 ```
 
 #
-* Sample 2 -> Simple `TextWacher` With `CallBack`
+* **Sample 2** -> Simple `TextWacher` With `CallBack`
 > **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
@@ -129,7 +129,7 @@ editText.addTextChangedListener(
 ```
 
 #
-* Sample 3 -> Simple `TextWacher` With `Prefix`
+* **Sample 3** -> Simple `TextWacher` With `Prefix`
 > **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
@@ -159,7 +159,7 @@ button.setOnClickListener {
 ```
 
 #
-* Sample 4 -> Simple `TextWacher` With `Prefix` And `CallBack`
+* **Sample 4** -> Simple `TextWacher` With `Prefix` And `CallBack`
 > **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
@@ -193,7 +193,7 @@ Preview :
 
 #
 ### CurrencyConverter In View (XML).
-* Sample 1 -> In `EditText`
+* **Sample 1** -> In `EditText`
 ```xml
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
     android:id="@+id/ed"
@@ -214,7 +214,7 @@ Preview :
 |---|---|
 
 #
-* Sample 2 -> Use Material Design
+* **Sample 2** -> Use Material Design
 ```xml
 <com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
@@ -241,7 +241,7 @@ Preview :
 |---|---|
 
 #
-* Sample 3 -> Use Material Design With Simple Code
+* **Sample 3** -> Use Material Design With Simple Code
 ```xml
 //OutlinedBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
@@ -288,11 +288,6 @@ button.setOnClickListener(new View.OnClickListener() {
 Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example6.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example11.jpg" width="400"/>|
 |---|---|
-
-
-Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example8.jpg" width="400"/>|
-|---|
 
 ---
 
