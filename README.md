@@ -88,6 +88,18 @@ button.setOnClickListener(new View.OnClickListener() {
         textView.setText(CurrencyConverter.trimCommaOfString(str));
     }
 });
+
+//sample 4
+//get real value from input via listener
+editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
+    @Override
+    public void realString(String value) {
+        Log.d(TAG, "realString: "+value);
+        Log.d(TAG, "realString: "+editText.getText().toString());
+
+        textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
+    }
+}));
 ```
 > **Kotlin**
 ```kotlin
@@ -125,6 +137,20 @@ button.setOnClickListener {
 
     textView.text = CurrencyConverter.trimCommaOfString(str)
 }
+
+//sample 4
+//get real value from input via listener
+editText.addTextChangedListener(
+    CurrencyConverter(editText,
+        "RP ",
+        StringCallBack { value ->
+            Log.d(TAG, "realString: $value")
+            Log.d(TAG, "realString: "+editText.text)
+
+            textView.text = CurrencyConverter.trimCommaOfString(str)
+        }
+    )
+)
 ```
 
 Preview :
