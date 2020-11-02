@@ -117,7 +117,7 @@ editText.addTextChangedListener(
 
 //sample 3
 //get real value from input via onclick with prefix
-editText.addTextChangedListener(CurrencyConverter(editText, "RP"))
+editText.addTextChangedListener(CurrencyConverter(editText, "RP "))
 button.setOnClickListener {
     val str: String = editText.text.toString()
     Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
