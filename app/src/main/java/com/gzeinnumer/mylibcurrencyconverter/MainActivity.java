@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyConverter;
 import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox;
 import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox;
+import com.gzeinnumer.mylibcurrencyconverter.utils.StringTools;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,20 +36,18 @@ public class MainActivity extends AppCompatActivity {
 //        sample2();
 //        sample3();
 //        sample4();
-        sample5();
+//        sample5();
     }
 
     private void sample1() {
         editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
-//        editText.addTextChangedListener(new CurrencyConverter(editText));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String str = editText.getText().toString();
-                Log.d(TAG, "onClick: "+ CurrencyConverter.trimCommaOfString(str));
+                Log.d(TAG, "onClick: "+ StringTools.trimCommaOfString(str, "RP "));
 
-//                textView.setText(CurrencyConverter.trimCommaOfString(str));
                 textView.setText(str);
             }
         });
@@ -79,9 +78,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                textView.setText(CurrencyConverter.trimCommaOfString(str));
-                CurrencyEditTextOutlinedBox.trimCommaOfString(editText.getText().toString());
-                textView.setText(ed1.getText());
+//                textView.setText(ed1.getText());
+                textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
             }
         });
 
@@ -94,9 +92,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                textView.setText(CurrencyConverter.trimCommaOfString(str));
-                CurrencyEditTextFilledBox.trimCommaOfString(editText.getText().toString());
                 textView.setText(ed1.getText());
+                textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
             }
         });
 

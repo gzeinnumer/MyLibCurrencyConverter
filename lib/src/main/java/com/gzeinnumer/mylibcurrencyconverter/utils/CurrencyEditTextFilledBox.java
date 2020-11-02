@@ -24,7 +24,6 @@ import java.util.Objects;
 
 public class CurrencyEditTextFilledBox extends TextInputLayout {
     private String prefix = "";
-    private static String sprefix = "";
     private static int MAX_LENGTH = 30;
     private static final int MAX_DECIMAL = 3;
     Context context;
@@ -59,23 +58,11 @@ public class CurrencyEditTextFilledBox extends TextInputLayout {
             textInputEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, attributes.getDimension(R.styleable.CurrencyEditTextFilledBox_textSize,0));
         }
         this.prefix = attributes.getString(R.styleable.CurrencyEditTextFilledBox_prefix);
-        sprefix = this.prefix;
 
         currencyTextWatcher = new CurrencyTextWatcher(textInputEditText, prefix);
         textInputEditText.addTextChangedListener(currencyTextWatcher);
 
         attributes.recycle();
-    }
-
-    public static String trimCommaOfString(String string) {
-        if (string.contains(",")) {
-            if (CurrencyEditTextFilledBox.sprefix.length()>0)
-                return string.replace(",", "").replace(CurrencyEditTextFilledBox.sprefix,"");
-            else
-                return string.replace(",", "");
-        } else {
-            return string;
-        }
     }
 
     public String getText() {

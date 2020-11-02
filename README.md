@@ -44,26 +44,38 @@ dependencies {
 ---
 ## Use
 
-### CurrencyConverter.
+### CurrencyConverter Programatically.
+* Sample 1 -> Simple TextWacher
 > **Java**
 ```java
-//sample 1
-//get real value from input via onclick
 editText.addTextChangedListener(new CurrencyConverter(editText));
 
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         String str = editText.getText().toString();
-        Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
+        Log.d(TAG, "onClick: "+ StringTools.trimCommaOfString(str, "RP "));
         Log.d(TAG, "onClick: "+editText.getText().toString());
 
-        textView.setText(CurrencyConverter.trimCommaOfString(str));
+        textView.setText(StringTools.trimCommaOfString(str));
     }
 });
+```
+> **Kotlin**
+```kotlin
+editText.addTextChangedListener(CurrencyConverter(editText))
+button.setOnClickListener {
+    val str: String = editText.text.toString()
+    Log.d(TAG, "onClick: " + StringTools.trimCommaOfString(str))
+    Log.d(TAG, "onClick: "+editText.text.toString())
 
-//sample 2
-//get real value from input via listener
+    textView.text = StringTools.trimCommaOfString(str)
+}
+```
+
+* Sample 2 -> Simple TextWacher With CallBack
+> **Java**
+```java
 editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
     @Override
     public void realString(String value) {
@@ -73,24 +85,53 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
         textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
     }
 }));
+```
+> **Kotlin**
+```kotlin
+editText.addTextChangedListener(
+    CurrencyConverter(editText,
+        StringCallBack { value ->
+            Log.d(TAG, "realString: $value")
+            Log.d(TAG, "realString: "+editText.text)
 
-//sample 3
-//get real value from input via onclick with prefix
+            textView.text = StringTools.trimCommaOfString(str)
+        }
+    )
+)
+```
+
+* Sample 3 -> Simple TextWacher With Prefix
+> **Java**
+```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
 
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         String str = editText.getText().toString();
-        Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
+        Log.d(TAG, "onClick: "+StringTools.trimCommaOfString(str));
         Log.d(TAG, "onClick: "+editText.getText().toString());
 
-        textView.setText(CurrencyConverter.trimCommaOfString(str));
+        textView.setText(StringTools.trimCommaOfString(str));
     }
 });
+```
+> **Kotlin**
+```kotlin
+editText.addTextChangedListener(CurrencyConverter(editText, "RP "))
 
-//sample 4
-//get real value from input via listener with prefix
+button.setOnClickListener {
+    val str: String = editText.text.toString()
+    Log.d(TAG, "onClick: " + StringTools.trimCommaOfString(str))
+    Log.d(TAG, "onClick: "+editText.text.toString())
+
+    textView.text = StringTools.trimCommaOfString(str)
+}
+```
+
+* Sample 4 -> Simple TextWacher With Prefix And CallBack
+> **Java**
+```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
     @Override
     public void realString(String value) {
@@ -103,43 +144,6 @@ editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new Curre
 ```
 > **Kotlin**
 ```kotlin
-//sample 1
-//get real value from input via onclick
-editText.addTextChangedListener(CurrencyConverter(editText))
-button.setOnClickListener {
-    val str: String = editText.text.toString()
-    Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
-    Log.d(TAG, "onClick: "+editText.text.toString())
-
-    textView.text = CurrencyConverter.trimCommaOfString(str)
-}
-
-//sample 2
-//get real value from input via listener
-editText.addTextChangedListener(
-    CurrencyConverter(editText,
-        StringCallBack { value ->
-            Log.d(TAG, "realString: $value")
-            Log.d(TAG, "realString: "+editText.text)
-
-            textView.text = CurrencyConverter.trimCommaOfString(str)
-        }
-    )
-)
-
-//sample 3
-//get real value from input via onclick with prefix
-editText.addTextChangedListener(CurrencyConverter(editText, "RP "))
-button.setOnClickListener {
-    val str: String = editText.text.toString()
-    Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
-    Log.d(TAG, "onClick: "+editText.text.toString())
-
-    textView.text = CurrencyConverter.trimCommaOfString(str)
-}
-
-//sample 4
-//get real value from input via listener with prefix
 editText.addTextChangedListener(
     CurrencyConverter(editText,
         "RP ",
@@ -147,11 +151,103 @@ editText.addTextChangedListener(
             Log.d(TAG, "realString: $value")
             Log.d(TAG, "realString: "+editText.text)
 
-            textView.text = CurrencyConverter.trimCommaOfString(str)
+            textView.text = StringTools.trimCommaOfString(str)
         }
     )
 )
 ```
+
+### CurrencyConverter In View (XML).
+* Sample 1 -> In EditText
+```xml
+<com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
+    android:id="@+id/ed"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:hint="Dalam Jumlah Rupiah"
+    app:prefix="RP " />
+```
+```java
+CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
+
+String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
+```
+
+Preview :
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example4.jpg" width="400"/>|
+|---|
+
+* Sample 2 -> Use Material Design
+```xml
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:hint="Dalam Bentuk Rupiah">
+
+    <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:prefix="RP " />
+
+</com.google.android.material.textfield.TextInputLayout>
+```
+```java
+CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
+
+String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
+```
+
+Preview :
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example5.jpg" width="400"/>|
+|---|
+
+* Sample 3 -> Use Material Design With Simple Code
+```xml
+//OutlinedBox
+<com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
+    android:id="@+id/ed_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:hint="Dalam Jumlah Rupiah"
+    app:prefix="RP " />
+
+//FilledBox
+<com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
+    android:id="@+id/ed_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:hint="Dalam Jumlah Rupiah"
+    app:prefix="RP " />
+```
+```java
+//OutlinedBox
+CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed_1);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        textView.setText(ed1.getText());
+        textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
+    }
+});
+
+//FilledBox
+CurrencyEditTextFilledBox ed1 = findViewById(R.id.ed_2);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        textView.setText(ed1.getText());
+        textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
+    }
+});
+```
+
+Preview :
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example6.jpg" width="400"/>|
+|---|
+
 
 Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example2.jpg" width="400"/>|

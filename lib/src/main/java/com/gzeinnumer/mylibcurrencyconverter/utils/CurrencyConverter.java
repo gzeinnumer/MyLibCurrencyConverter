@@ -129,8 +129,8 @@ public class CurrencyConverter implements TextWatcher {
         }
     }
 
-    public static String trimCommaOfString(String string) {
-        if (string.contains(",")) {
+    private static String trimCommaOfString(String string) {
+        if (string.contains(",") || CurrencyConverter.sSrefix.length()>0) {
             if (CurrencyConverter.sSrefix.length()>0)
                 return string.replace(",", "").replace(CurrencyConverter.sSrefix,"");
             else
