@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
 
-//        sample1();
+        sample1();
 //        sample2();
 //        sample3();
 //        sample4();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 String str = editText.getText().toString();
                 Log.d(TAG, "onClick: "+ StringTools.trimCommaOfString(str, "RP "));
 
-                textView.setText(str);
+                textView.setText(StringTools.trimCommaOfString(str, "RP "));
             }
         });
     }

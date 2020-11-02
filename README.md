@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/dev-1/preview/bg.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/dev-1/preview/example7.jpg" width="400"/>
 </p>
 
 <h1 align="center">
@@ -64,6 +64,7 @@ button.setOnClickListener(new View.OnClickListener() {
 > **Kotlin**
 ```kotlin
 editText.addTextChangedListener(CurrencyConverter(editText))
+
 button.setOnClickListener {
     val str: String = editText.text.toString()
     Log.d(TAG, "onClick: " + StringTools.trimCommaOfString(str))
