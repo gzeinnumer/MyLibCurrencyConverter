@@ -90,7 +90,7 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 
 //sample 4
-//get real value from input via listener
+//get real value from input via listener with prefix
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
     @Override
     public void realString(String value) {
@@ -139,7 +139,7 @@ button.setOnClickListener {
 }
 
 //sample 4
-//get real value from input via listener
+//get real value from input via listener with prefix
 editText.addTextChangedListener(
     CurrencyConverter(editText,
         "RP ",
