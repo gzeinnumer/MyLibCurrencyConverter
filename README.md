@@ -249,7 +249,8 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP " />
+    app:prefix="RP "
+    app:textSize="12sp"/>
 
 //FilledBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
@@ -257,7 +258,8 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP " />
+    app:prefix="RP "
+    app:textSize="12sp" />
 ```
 ```java
 //OutlinedBox
