@@ -73,6 +73,21 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
         textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
     }
 }));
+
+//sample 3
+//get real value from input via onclick with prefix
+editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
+
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String str = editText.getText().toString();
+        Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
+        Log.d(TAG, "onClick: "+editText.getText().toString());
+
+        textView.setText(CurrencyConverter.trimCommaOfString(str));
+    }
+});
 ```
 > **Kotlin**
 ```kotlin
@@ -99,11 +114,22 @@ editText.addTextChangedListener(
         }
     )
 )
+
+//sample 3
+//get real value from input via onclick with prefix
+editText.addTextChangedListener(CurrencyConverter(editText, "RP"))
+button.setOnClickListener {
+    val str: String = editText.text.toString()
+    Log.d(TAG, "onClick: " + CurrencyConverter.trimCommaOfString(str))
+    Log.d(TAG, "onClick: "+editText.text.toString())
+
+    textView.text = CurrencyConverter.trimCommaOfString(str)
+}
 ```
 
 Preview :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|
-|---|
+|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example2.jpg" width="400"/>|
+|---|---|
 
 ---
 

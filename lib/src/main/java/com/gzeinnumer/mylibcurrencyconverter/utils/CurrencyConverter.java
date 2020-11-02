@@ -3,90 +3,140 @@ package com.gzeinnumer.mylibcurrencyconverter.utils;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import java.text.DecimalFormat;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class CurrencyConverter implements TextWatcher {
-
-    private EditText ed;
-    private String lastText;
-    private boolean bDel = false;
-    private boolean bInsert = false;
-    private int pos;
+    private static final int MAX_LENGTH = 100;
+    private static final int MAX_DECIMAL = 3;
+    private final EditText editText;
+    private String previousCleanString;
+    private String prefix = "";
+    private static String sSrefix = "";
     StringCallBack stringCallBack;
 
     public interface StringCallBack{
         void realString(String value);
     }
 
-    public CurrencyConverter(EditText ed) {
-        this.ed = ed;
+    public CurrencyConverter(EditText editText) {
+        this.editText = editText;
     }
 
-    public CurrencyConverter(EditText ed, StringCallBack stringCallBack) {
-        this.ed = ed;
+    public CurrencyConverter(EditText editText, String prefix) {
+        this.editText = editText;
+        this.prefix = prefix;
+        sSrefix = prefix;
+    }
+
+    public CurrencyConverter(EditText editText, String prefix, StringCallBack stringCallBack) {
+        this.editText = editText;
+        this.prefix = prefix;
+        sSrefix = prefix;
         this.stringCallBack = stringCallBack;
     }
 
-    public static String getStringWithSeparator(long value) {
-        DecimalFormat formatter = (DecimalFormat) NumberFormat.getNumberInstance(Locale.US);
-        String f = formatter.format(value);
-        return f;
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-        bDel = false;
-        bInsert = false;
-        if (before == 1 && count == 0) {
-            bDel = true;
-            pos = start;
-        } else if (before == 0 && count == 1) {
-            bInsert = true;
-            pos = start;
-        }
+    public CurrencyConverter(EditText editText, StringCallBack stringCallBack) {
+        this.editText = editText;
+        this.stringCallBack = stringCallBack;
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        lastText = s.toString();
+        // do nothing
     }
 
     @Override
-    public void afterTextChanged(Editable s) {
-        ed.removeTextChangedListener(this);
-        StringBuilder sb = new StringBuilder();
-        String text = s.toString();
-        for (int i = 0; i < text.length(); i++) {
-            if ((text.charAt(i) >= 0x30 && text.charAt(i) <= 0x39) || text.charAt(i) == '.' || text.charAt(i) == ',')
-                sb.append(text.charAt(i));
-        }
-        if (!sb.toString().equals(s.toString())) {
-            bDel = bInsert = false;
-        }
-        String newText = getFormattedString(sb.toString());
-        s.clear();
-        s.append(newText);
-        if (stringCallBack!=null)
-            stringCallBack.realString(trimCommaOfString(newText));
-        ed.addTextChangedListener(this);
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        // do nothing
+    }
 
-        if (bDel) {
-            int idx = pos;
-            if (lastText.length() - 1 > newText.length())
-                idx--; // if one , is removed
-            if (idx < 0)
-                idx = 0;
-            ed.setSelection(idx);
-        } else if (bInsert) {
-            int idx = pos + 1;
-            if (lastText.length() + 1 < newText.length())
-                idx++; // if one , is added
-            if (idx > newText.length())
-                idx = newText.length();
-            ed.setSelection(idx);
+    @Override
+    public void afterTextChanged(Editable editable) {
+        String str = editable.toString();
+        if (str.length() < prefix.length()) {
+            editText.setText(prefix);
+            editText.setSelection(prefix.length());
+            return;
+        }
+        if (str.equals(prefix)) {
+            return;
+        }
+        // cleanString this the string which not contain prefix and ,
+        String cleanString = str.replace(prefix, "").replaceAll("[,]", "");
+        // for prevent afterTextChanged recursive call
+        if (cleanString.equals(previousCleanString) || cleanString.isEmpty()) {
+            return;
+        }
+        previousCleanString = cleanString;
+
+        String formattedString;
+        if (cleanString.contains(".")) {
+            formattedString = formatDecimal(cleanString);
+        } else {
+            formattedString = formatInteger(cleanString);
+        }
+        editText.removeTextChangedListener(this); // Remove listener
+        editText.setText(formattedString);
+        handleSelection();
+        if (stringCallBack!=null)
+            stringCallBack.realString(trimCommaOfString(formattedString));
+        editText.addTextChangedListener(this); // Add back the listener
+    }
+
+    private String formatInteger(String str) {
+        BigDecimal parsed = new BigDecimal(str);
+        DecimalFormat formatter =
+                new DecimalFormat(prefix + "#,###", new DecimalFormatSymbols(Locale.US));
+        return formatter.format(parsed);
+    }
+
+    private String formatDecimal(String str) {
+        if (str.equals(".")) {
+            return prefix + ".";
+        }
+        BigDecimal parsed = new BigDecimal(str);
+        // example pattern VND #,###.00
+        DecimalFormat formatter = new DecimalFormat(prefix + "#,###." + getDecimalPattern(str),
+                new DecimalFormatSymbols(Locale.US));
+        formatter.setRoundingMode(RoundingMode.DOWN);
+        return formatter.format(parsed);
+    }
+
+    /**
+     * It will return suitable pattern for format decimal
+     * For example: 10.2 -> return 0 | 10.23 -> return 00, | 10.235 -> return 000
+     */
+    private String getDecimalPattern(String str) {
+        int decimalCount = str.length() - str.indexOf(".") - 1;
+        StringBuilder decimalPattern = new StringBuilder();
+        for (int i = 0; i < decimalCount && i < MAX_DECIMAL; i++) {
+            decimalPattern.append("0");
+        }
+        return decimalPattern.toString();
+    }
+
+    private void handleSelection() {
+        if (editText.getText().length() <= MAX_LENGTH) {
+            editText.setSelection(editText.getText().length());
+        } else {
+            editText.setSelection(MAX_LENGTH);
+        }
+    }
+
+    public static String trimCommaOfString(String string) {
+        if (string.contains(",")) {
+            if (CurrencyConverter.sSrefix.length()>0)
+                return string.replace(",", "").replace(CurrencyConverter.sSrefix,"");
+            else
+                return string.replace(",", "");
+        } else {
+            return string;
         }
     }
 
@@ -116,11 +166,9 @@ public class CurrencyConverter implements TextWatcher {
         return res;
     }
 
-    public static String trimCommaOfString(String string) {
-        if (string.contains(",")) {
-            return string.replace(",", "");
-        } else {
-            return string;
-        }
+    public static String getStringWithSeparator(long value) {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getNumberInstance(Locale.US);
+        String f = formatter.format(value);
+        return f;
     }
 }

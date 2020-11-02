@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+//import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyConvertera;
 import com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyConverter;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,31 +29,40 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
 
-//        sample1();
-        sample2();
+        sample1();
+//        sample2();
+//        sample3();
     }
 
     private void sample1() {
-        editText.addTextChangedListener(new CurrencyConverter(editText));
+        editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
+//        editText.addTextChangedListener(new CurrencyConverter(editText));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String str = editText.getText().toString();
-                Log.d(TAG, "onClick: "+CurrencyConverter.trimCommaOfString(str));
+                Log.d(TAG, "onClick: "+ CurrencyConverter.trimCommaOfString(str));
 
-                textView.setText(CurrencyConverter.trimCommaOfString(str));
+//                textView.setText(CurrencyConverter.trimCommaOfString(str));
+                textView.setText(str);
             }
         });
     }
 
     private void sample2() {
+        editText.addTextChangedListener(new CurrencyConverter(editText, "RP ", new CurrencyConverter.StringCallBack() {
+            @Override
+            public void realString(String value) {
+                textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
+            }
+        }));
+    }
+
+    private void sample3() {
         editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
             @Override
             public void realString(String value) {
-                Log.d(TAG, "realString: "+value);
-                Log.d(TAG, "realString: "+editText.getText().toString());
-
                 textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
             }
         }));
