@@ -221,7 +221,7 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:hint="Dalam Bentuk Rupiah">
+    android:hint="DaKlam Bentuk Rupiah">
 
     <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
         android:layout_width="match_parent"
