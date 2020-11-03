@@ -190,6 +190,7 @@ editText.addTextChangedListener(
 Preview For **Sample 1-4**:
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example2.jpg" width="400"/>|
 |---|---|
+|**Sample 1 & 2**|**Sample 3 & 4**|
 
 #
 ### CurrencyConverter In View (XML).
@@ -220,7 +221,7 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:hint="Dalam Bentuk Rupiah">
+    android:hint="DaKlam Bentuk Rupiah">
 
     <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
         android:layout_width="match_parent"
