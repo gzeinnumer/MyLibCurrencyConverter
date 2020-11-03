@@ -201,7 +201,14 @@ Preview For **Sample 1-4**:
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
+    app:maxLength="20"
     app:prefix="RP " />
+```
+Custom Your Value
+```xml
+app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
+app:maxLength="20" // for Max Character in EditText include Prefix and Comma
+app:prefix="RP " // for Prefix
 ```
 Remove `Prefix` and symbol `,` and get `real value`
 ```java
@@ -226,6 +233,7 @@ Preview :
     <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:maxLength="20"
         app:prefix="RP " />
 
 </com.google.android.material.textfield.TextInputLayout>
@@ -243,6 +251,7 @@ Preview :
 
 #
 * **Sample 3** -> Use Material Design With Simple Code
+XML
 ```xml
 //OutlinedBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
@@ -262,6 +271,13 @@ Preview :
     app:prefix="RP "
     app:textSize="12sp" />
 ```
+Custom Your Value
+```xml
+app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
+app:maxLength="20" // for Max Character in EditText include Prefix and Comma
+app:prefix="RP " // for Prefix
+```
+Activity
 ```java
 //OutlinedBox
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed_1);
