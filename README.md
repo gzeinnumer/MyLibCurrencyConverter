@@ -201,14 +201,14 @@ Preview For **Sample 1-4**:
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:maxLength="20"
     app:prefix="RP " />
 ```
 Custom Your Value
 ```xml
 app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
 app:maxLength="20" // for Max Character in EditText include Prefix and Comma
-app:prefix="RP " // for Prefix
+app:prefix="RP " // for Prefix Example -> RP 1.000.000
+app:textSize="12sp" // for TextSize on input
 ```
 Remove `Prefix` and symbol `,` and get `real value`
 ```java
@@ -233,7 +233,6 @@ Preview :
     <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:maxLength="20"
         app:prefix="RP " />
 
 </com.google.android.material.textfield.TextInputLayout>
@@ -259,8 +258,7 @@ XML
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP "
-    app:textSize="12sp"/>
+    app:prefix="RP "/>
 
 //FilledBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
@@ -268,14 +266,14 @@ XML
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP "
-    app:textSize="12sp" />
+    app:prefix="RP " />
 ```
 Custom Your Value
 ```xml
 app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
 app:maxLength="20" // for Max Character in EditText include Prefix and Comma
-app:prefix="RP " // for Prefix
+app:prefix="RP " // for Prefix Example -> RP 1.000.000
+app:textSize="12sp" // for TextSize on input
 ```
 Activity
 ```java
