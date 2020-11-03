@@ -203,6 +203,13 @@ Preview For **Sample 1-4**:
     app:hint="Dalam Jumlah Rupiah"
     app:prefix="RP " />
 ```
+Custom Your Value
+```xml
+app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
+app:maxLength="20" // for Max Character in EditText include Prefix and Comma
+app:prefix="RP " // for Prefix Example -> RP 1.000.000
+app:textSize="12sp" // for TextSize on input
+```
 Remove `Prefix` and symbol `,` and get `real value`
 ```java
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
@@ -243,6 +250,7 @@ Preview :
 
 #
 * **Sample 3** -> Use Material Design With Simple Code
+XML
 ```xml
 //OutlinedBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
@@ -250,8 +258,7 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP "
-    app:textSize="12sp"/>
+    app:prefix="RP "/>
 
 //FilledBox
 <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
@@ -259,9 +266,16 @@ Preview :
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP "
-    app:textSize="12sp" />
+    app:prefix="RP " />
 ```
+Custom Your Value
+```xml
+app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
+app:maxLength="20" // for Max Character in EditText include Prefix and Comma
+app:prefix="RP " // for Prefix Example -> RP 1.000.000
+app:textSize="12sp" // for TextSize on input
+```
+Activity
 ```java
 //OutlinedBox
 CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed_1);
