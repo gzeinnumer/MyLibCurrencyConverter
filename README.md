@@ -32,6 +32,7 @@ allprojects {
 dependencies {
   ...
   implementation 'com.github.gzeinnumer:MyLibCurrencyConverter:version'
+  implementation 'com.google.android.material:material:1.2.0'
 }
 ```
 
@@ -192,7 +193,8 @@ Preview For **Sample 1-4**:
 |---|---|
 |**Sample 1 & 2**|**Sample 3 & 4**|
 
-#
+---
+
 ### CurrencyConverter In View (XML).
 * **Sample 1** -> In `EditText`
 ```xml
