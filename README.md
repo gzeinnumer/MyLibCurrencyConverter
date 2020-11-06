@@ -45,6 +45,16 @@ dependencies {
 - Material.io ([docs](https://material.io/develop/android/docs/getting-started))
 
 ---
+
+**First Step**. Use `MaterialComponents` in your style :
+
+```xml
+<style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+</style>
+```
+
+---
 ## Use
 
 ### CurrencyConverter Programatically.
@@ -205,7 +215,7 @@ Preview For **Sample 1-4**:
     app:hint="Dalam Jumlah Rupiah"
     app:prefix="RP " />
 ```
-Custom Your Value
+Custom your view
 ```xml
 app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
 app:maxLength="20" // for Max Character in EditText include Prefix and Comma
