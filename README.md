@@ -311,8 +311,9 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 });
 ```
+**FullCode [MainActivity](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/java/com/gzeinnumer/mylibcurrencyconverter/MainActivity.java)  & [XML](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/res/layout/activity_main.xml)**
 
-Preview :
+**Preview** :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example6.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example11.jpg" width="400"/>|
 |---|---|
 
