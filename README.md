@@ -322,6 +322,17 @@ button.setOnClickListener(new View.OnClickListener() {
 
 ---
 
+### Version
+- **4.0.0**
+  - First Release
+
+---
+
+### Contribution
+You can sent your constibution to `branche` `open-pull`.
+
+---
+
 ```
 Copyright 2020 M. Fadli Zein
 ```
