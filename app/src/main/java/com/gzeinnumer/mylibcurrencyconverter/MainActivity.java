@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         sample1();
 //        sample2();
 //        sample3();
-//        sample4();
-//        sample5();
+        sample4();
+        sample5();
     }
 
     private void sample1() {
