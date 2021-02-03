@@ -53,18 +53,4 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
-        android:id="@+id/ed_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hint="Dalam Jumlah Rupiah"
-        app:prefix="RP " />
-
-    <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
-        android:id="@+id/ed_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hint="Dalam Jumlah Rupiah"
-        app:prefix="RP " />
-
 </LinearLayout>
