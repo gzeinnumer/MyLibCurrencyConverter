@@ -61,20 +61,9 @@ dependencies {
 
 **Note** `RP 123,456,789.111` To Remove `Prefix` `RP` and symbol `,` you can use this :
 ```java
-String str = editText.getText().toString();
-textView.setText(StringTools.trimCommaOfString(str, "RP "));
-//or -> without prefix
-textView.setText(StringTools.trimCommaOfString(str);
+StringTools.trimCommaOfString(str, "RP ");
 ```
 
-Here is the `xml` view that i use for **Sample 1-4**
-```xml
-<EditText
-    android:id="@+id/editText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:inputType="numberDecimal" />
-```
 #
 * **Sample 1** -> Simple `TextWacher`
 > **Java**
