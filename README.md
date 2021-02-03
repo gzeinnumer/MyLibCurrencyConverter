@@ -74,6 +74,7 @@ dependencies {
 StringTools.trimCommaOfString(str, "RP ");
 ```
 
+#
 * **Sample 1** -> Simple `TextWacher`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText));
@@ -90,6 +91,7 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+#
 * **Sample 2** -> Simple `TextWacher` With `CallBack`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
@@ -103,6 +105,7 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
 }));
 ```
 
+#
 * **Sample 3** -> Simple `TextWacher` With `Prefix`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
@@ -119,6 +122,7 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+#
 * **Sample 4** -> Simple `TextWacher` With `Prefix` And `CallBack`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
@@ -132,6 +136,7 @@ editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new Curre
 }));
 ```
 
+#
 Preview For **Sample 1-4**:
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example1.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example2.jpg" width="400"/>|
 |---|---|
@@ -162,10 +167,12 @@ CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
+#
 Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example4.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example9.jpg" width="400"/>|
 |---|---|
 
+#
 * **Sample 2** -> Use Material Design
 ```xml
 <com.google.android.material.textfield.TextInputLayout
@@ -189,6 +196,7 @@ CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed);
 String str = StringTools.trimCommaOfString(ed1.getText(), "RP ");
 ```
 
+#
 Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example5.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example10.jpg" width="400"/>|
 |---|---|
