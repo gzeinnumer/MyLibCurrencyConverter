@@ -7,10 +7,10 @@
 </h1>
 
 <p align="center">
-    <a><img src="https://img.shields.io/badge/Version-4.0.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-4.0.1-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
-    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
     <p>Simple way to convert 1000000 to 1,000,000 .</p>
@@ -66,12 +66,6 @@ textView.setText(StringTools.trimCommaOfString(str, "RP "));
 //or -> without prefix
 textView.setText(StringTools.trimCommaOfString(str);
 ```
-```kotlin
-val str = editText.text;
-textView.text = StringTools.trimCommaOfString(str, "RP ")
-//or -> without prefix
-textView.text = StringTools.trimCommaOfString(str)
-```
 
 Here is the `xml` view that i use for **Sample 1-4**
 ```xml
@@ -98,18 +92,6 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 });
 ```
-> **Kotlin**
-```kotlin
-editText.addTextChangedListener(CurrencyConverter(editText))
-
-button.setOnClickListener {
-    val str: String = editText.text.toString()
-    Log.d(TAG, "onClick: " + StringTools.trimCommaOfString(str))
-    Log.d(TAG, "onClick: "+editText.text.toString())
-
-    textView.text = StringTools.trimCommaOfString(str)
-}
-```
 
 #
 * **Sample 2** -> Simple `TextWacher` With `CallBack`
@@ -124,19 +106,6 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
         textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
     }
 }));
-```
-> **Kotlin**
-```kotlin
-editText.addTextChangedListener(
-    CurrencyConverter(editText,
-        StringCallBack { value ->
-            Log.d(TAG, "realString: $value")
-            Log.d(TAG, "realString: "+editText.text)
-
-            textView.text = StringTools.trimCommaOfString(str)
-        }
-    )
-)
 ```
 
 #
@@ -156,18 +125,6 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 });
 ```
-> **Kotlin**
-```kotlin
-editText.addTextChangedListener(CurrencyConverter(editText, "RP "))
-
-button.setOnClickListener {
-    val str: String = editText.text.toString()
-    Log.d(TAG, "onClick: " + StringTools.trimCommaOfString(str))
-    Log.d(TAG, "onClick: "+editText.text.toString())
-
-    textView.text = StringTools.trimCommaOfString(str)
-}
-```
 
 #
 * **Sample 4** -> Simple `TextWacher` With `Prefix` And `CallBack`
@@ -182,20 +139,6 @@ editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new Curre
         textView.setText("(Real Value) : "+value + " && (Preview) : "+editText.getText().toString());
     }
 }));
-```
-> **Kotlin**
-```kotlin
-editText.addTextChangedListener(
-    CurrencyConverter(editText,
-        "RP ",
-        StringCallBack { value ->
-            Log.d(TAG, "realString: $value")
-            Log.d(TAG, "realString: "+editText.text)
-
-            textView.text = StringTools.trimCommaOfString(str)
-        }
-    )
-)
 ```
 
 Preview For **Sample 1-4**:
@@ -260,62 +203,6 @@ Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example5.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example10.jpg" width="400"/>|
 |---|---|
 
-#
-* **Sample 3** -> Use Material Design With Simple Code
-XML
-```xml
-//OutlinedBox
-<com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextOutlinedBox
-    android:id="@+id/ed_1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP "/>
-
-//FilledBox
-<com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditTextFilledBox
-    android:id="@+id/ed_2"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:hint="Dalam Jumlah Rupiah"
-    app:prefix="RP " />
-```
-Custom your view
-```xml
-app:hint="Dalam Jumlah Rupiah" // for Hint of EditText
-app:maxLength="20" // for Max Character in EditText include Prefix and Comma
-app:prefix="RP " // for Prefix Example -> RP 1.000.000
-app:textSize="12sp" // for TextSize on input
-```
-Remove `Prefix` and symbol `,` and get `real value`
-```java
-//OutlinedBox
-CurrencyEditTextOutlinedBox ed1 = findViewById(R.id.ed_1);
-button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-        textView.setText(ed1.getText());
-        textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
-    }
-});
-
-//FilledBox
-CurrencyEditTextFilledBox ed1 = findViewById(R.id.ed_2);
-button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-        textView.setText(ed1.getText());
-        textView.setText(StringTools.trimCommaOfString(ed1.getText(), "RP "));
-    }
-});
-```
-
-**Preview** :
-|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example6.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example11.jpg" width="400"/>|
-|---|---|
-
 ---
 
 **FullCode [MainActivity](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/java/com/gzeinnumer/mylibcurrencyconverter/MainActivity.java)  & [XML](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/res/layout/activity_main.xml)**
@@ -327,6 +214,8 @@ button.setOnClickListener(new View.OnClickListener() {
 ### Version
 - **4.0.0**
   - First Release
+- **4.0.1**
+  - Take Out Useless Method
 
 ---
 
