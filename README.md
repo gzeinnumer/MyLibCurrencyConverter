@@ -66,7 +66,6 @@ StringTools.trimCommaOfString(str, "RP ");
 
 #
 * **Sample 1** -> Simple `TextWacher`
-> **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText));
 
@@ -84,7 +83,6 @@ button.setOnClickListener(new View.OnClickListener() {
 
 #
 * **Sample 2** -> Simple `TextWacher` With `CallBack`
-> **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
     @Override
@@ -99,7 +97,6 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
 
 #
 * **Sample 3** -> Simple `TextWacher` With `Prefix`
-> **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
 
@@ -117,7 +114,6 @@ button.setOnClickListener(new View.OnClickListener() {
 
 #
 * **Sample 4** -> Simple `TextWacher` With `Prefix` And `CallBack`
-> **Java**
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
     @Override
