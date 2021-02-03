@@ -17,7 +17,17 @@
 </p>
 
 ---
-## Download
+# Content List
+* [Download](#download)
+* [Feature List](#feature-list)
+* [Tech stack and 3rd library](#tech-stack-and-3rd-library)
+* [Usage](#usage)
+* [Example Code/App](#example-codeapp)
+* [Version](#version)
+* [Contribution](#contribution)
+
+---
+# Download
 Add maven `jitpack.io` and `dependencies` in build.gradle (Project) :
 ```gradle
 // build.gradle project
@@ -36,27 +46,27 @@ dependencies {
 }
 ```
 
-## Feature List
-- [x] **CurrencyConverter Programatically**.
-- [x] **CurrencyConverter In View (XML)**.
+---
+# Feature List
+- [x] [CurrencyConverter Programatically](#currencyconverter-programatically).
+- [x] [CurrencyConverter In View (XML)](#currencyconverter-in-view-xml).
 
-## Tech stack and 3rd library
+---
+# Tech stack and 3rd library
 - TextWatcher ([docs](https://developer.android.com/reference/android/text/TextWatcher))
 - Material.io ([docs](https://material.io/develop/android/docs/getting-started))
 
 ---
+# Usage
 
 **First Step**. Use `MaterialComponents` in your style :
-
 ```xml
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <!-- Customize your theme here. -->
 </style>
 ```
 
----
-## Use
-
+#
 ### CurrencyConverter Programatically.
 
 **Note** `RP 123,456,789.111` To Remove `Prefix` `RP` and symbol `,` you can use this :
@@ -64,7 +74,6 @@ dependencies {
 StringTools.trimCommaOfString(str, "RP ");
 ```
 
-#
 * **Sample 1** -> Simple `TextWacher`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText));
@@ -81,7 +90,6 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-#
 * **Sample 2** -> Simple `TextWacher` With `CallBack`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConverter.StringCallBack() {
@@ -95,7 +103,6 @@ editText.addTextChangedListener(new CurrencyConverter(editText, new CurrencyConv
 }));
 ```
 
-#
 * **Sample 3** -> Simple `TextWacher` With `Prefix`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP "));
@@ -112,7 +119,6 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-#
 * **Sample 4** -> Simple `TextWacher` With `Prefix` And `CallBack`
 ```java
 editText.addTextChangedListener(new CurrencyConverter(editText, "RP " ,new CurrencyConverter.StringCallBack() {
@@ -131,8 +137,7 @@ Preview For **Sample 1-4**:
 |---|---|
 |**Sample 1 & 2**|**Sample 3 & 4**|
 
----
-
+#
 ### CurrencyConverter In View (XML).
 * **Sample 1** -> In `EditText`
 ```xml
@@ -161,7 +166,6 @@ Preview :
 |<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example4.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/preview/example9.jpg" width="400"/>|
 |---|---|
 
-#
 * **Sample 2** -> Use Material Design
 ```xml
 <com.google.android.material.textfield.TextInputLayout
@@ -190,23 +194,22 @@ Preview :
 |---|---|
 
 ---
+# Example Code/App
 
 **FullCode [MainActivity](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/java/com/gzeinnumer/mylibcurrencyconverter/MainActivity.java)  & [XML](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/res/layout/activity_main.xml)**
 
 [Sample Code And App](https://github.com/gzeinnumer/MyLibCurrencyConverterExample)
 
 ---
-
-### Version
+# Version
 - **4.0.0**
   - First Release
 - **4.0.1**
   - Take Out Useless Method
 
 ---
-
-### Contribution
-You can sent your constibution to `branche` `open-pull`.
+# Contribution
+You can sent your constibution to `branch` `open-pull`.
 
 ---
 
