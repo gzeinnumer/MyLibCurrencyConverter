@@ -48,8 +48,8 @@ dependencies {
 
 ---
 # Feature List
-- [x] **CurrencyConverter Programatically**.
-- [x] **CurrencyConverter In View (XML)**.
+- [x] [CurrencyConverter Programatically](#currencyconverter-programatically).
+- [x] [**CurrencyConverter In View (XML)](#currencyconverter-in-view-xml).
 
 ---
 # Tech stack and 3rd library
