@@ -320,6 +320,8 @@ button.setOnClickListener(new View.OnClickListener() {
 
 **FullCode [MainActivity](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/java/com/gzeinnumer/mylibcurrencyconverter/MainActivity.java)  & [XML](https://github.com/gzeinnumer/MyLibCurrencyConverter/blob/master/app/src/main/res/layout/activity_main.xml)**
 
+[Sample Code And App](https://github.com/gzeinnumer/MyLibCurrencyConverterExample)
+
 ---
 
 ### Version
