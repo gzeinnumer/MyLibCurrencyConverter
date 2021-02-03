@@ -173,6 +173,7 @@ Preview :
     <com.gzeinnumer.mylibcurrencyconverter.utils.CurrencyEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         app:prefix="RP " />
 
 </com.google.android.material.textfield.TextInputLayout>
